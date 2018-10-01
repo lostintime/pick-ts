@@ -32,7 +32,7 @@ type Person = {
   age: number
 }
 
-// This will compile, but should is wrong!
+// This will compile, but doesn't work as expected!
 const p: Person = pick<keyof Person>()({ name: "John", age: 20 })
 ```
 
