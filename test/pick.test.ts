@@ -41,6 +41,17 @@ describe("Types", () => {
     // const zz: MyType = pick("title")(task)
   })
 
+  it("allows optional types", () => {
+    type MyType = {
+      title: string
+      notes?: string
+    }
+
+    const t: MyType = { title: "hello", notes: "world" }
+    const b: MyType = pick("title", "notes")(t)
+    expect(b).deep.equals(t)
+  })
+
   it("should not be possible to break types with explicits", () => {
     // type Person = {
     //   name: string
