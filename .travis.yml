@@ -1,0 +1,21 @@
+language: node_js
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+node_js:
+- '8.11'
+before_script:
+- npm install -g codecov
+- npm ci
+script:
+- npm run test:prod && npm run build
+deploy:
+  provider: npm
+  on:
+    tags: true
+  skip_cleanup: true
+  email: lostintime.dev@gmail.com
+after_success:
+- codecov
