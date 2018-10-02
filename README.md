@@ -2,6 +2,8 @@ Pick-TS
 =======
 
 [![Travis](https://img.shields.io/travis/lostintime/pick-ts.svg)](https://travis-ci.org/lostintime/pick-ts)
+[![Coverage Status](https://codecov.io/gh/lostintime/pick-ts/coverage.svg?branch=master)](https://codecov.io/gh/lostintime/pick-ts?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/lostintime/pick-ts.svg)](https://greenkeeper.io/)
 
 A _best-effort_ typesafe(er<sup>1</sup>) function to _pick_ selected object fields.
 
