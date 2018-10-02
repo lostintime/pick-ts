@@ -2,12 +2,12 @@
   "name": "pick-ts",
   "version": "0.0.0",
   "private": false,
-  "description": "TypeScript interface fields picker",
+  "description": "Pick selected object fields",
   "author": "lostintime.dev@gmail.com",
   "license": "Apache-2.0",
   "homepage": "https://github.com/lostintime/pick-ts",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/pick.js",
+  "types": "lib/pick.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://github.com:lostintime/pick-ts.git"
@@ -43,5 +43,26 @@
     "tslint-config-standard": "^8.0.1",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.1.1"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcov",
+      "json",
+      "text",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   }
 }
