@@ -2,12 +2,12 @@
   "name": "pick-ts",
   "version": "0.0.0",
   "private": false,
-  "description": "TypeScript interface fields picker",
+  "description": "Pick selected object fields",
   "author": "lostintime.dev@gmail.com",
   "license": "Apache-2.0",
   "homepage": "https://github.com/lostintime/pick-ts",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/pick.js",
+  "types": "lib/pick.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://github.com:lostintime/pick-ts.git"
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "clean": "rimraf dist && rimraf coverage && rimraf .nyc_output",
+    "clean": "rimraf lib && rimraf coverage && rimraf .nyc_output",
     "test": "mocha --opts mocha.opts",
     "test:watch": "mocha --opts mocha.opts --watch",
     "test:prod": "npm run lint && nyc mocha --opts mocha.opts --reporter dot",
@@ -32,9 +32,9 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@types/chai": "^4.1.5",
+    "@types/chai": "^4.1.6",
     "@types/mocha": "^5.2.5",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "rimraf": "^2.6.2",
@@ -42,6 +42,27 @@
     "tslint": "^5.11.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.0.3"
+    "typescript": "^3.1.1"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcov",
+      "json",
+      "text",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   }
 }

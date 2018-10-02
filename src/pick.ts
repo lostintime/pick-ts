@@ -19,16 +19,17 @@
  * Builds a function that will filter only selected fields for given object
  * @param keys
  */
-export default function pick<K extends string | number | symbol>(...keys: K[]):
+export default function pick<K extends PropertyKey>(...keys: K[]):
                             <T extends Pick<T, K>>(obj: T) => Pick<T, K> {
   return <T extends Pick<T, K>>(obj: T): Pick<T, K> => {
     const out: Pick<T, K> = {} as Pick<T, K>
 
-    keys.forEach(prop => {
+    for (const k in keys) {
+      const prop = keys[k]
       if (obj.hasOwnProperty(prop) && obj[prop] !== undefined) {
         out[prop] = obj[prop]
       }
-    })
+    }
 
     return out
   }
